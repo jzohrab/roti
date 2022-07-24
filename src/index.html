@@ -37,16 +37,14 @@
         <p>Learn a poem or lyrics from text &mdash; see <a href="#" onclick="openPopup('menuUsage');">Usage</a> if you're new.  Welcome and good luck!</p>
       </div>
 
-      <div class="box">
-        <div class="col">
-          <p class="colhead">Text to learn:</p>
-          <textarea id="textToLearn" rows="4" cols="45"></textarea>
+      <div id="userInput">
+        <p class="colhead">Text to learn:</p>
+        <textarea id="textToLearn" rows="4" cols="45"></textarea>
+        <div id="userbuttons">
+          <button type="button" onclick="startShow();">Start</button>
         </div>
+        <hr />
       </div>
-      <div id="userbuttons">
-        <button type="button" onclick="startShow();">Start</button>
-      </div>
-      <hr />
 
       <!-- Slideshow container -->
       <div class="slideshow-container">

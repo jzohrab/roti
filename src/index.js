@@ -50,6 +50,7 @@ window.startShow = function() {
     }
   }
 
+  document.getElementById('userInput').style.visibility = 'hidden'
   showSlide(0)
 }
 
@@ -74,7 +75,9 @@ window.currentSlide = function(n) {
 }
 
 window.showSlide = function(n) {
-  console.log(`showing slide ${n}, text = ${slides[n]}`)
+  if (slides.length == 0)
+    return;
+
   h = slides[n]
   document.getElementById('output').innerHTML = h.text.replaceAll('\n', '<br />')
 
