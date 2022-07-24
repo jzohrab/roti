@@ -27,11 +27,14 @@ window.startShow = function() {
   var lines = getLines("textToLearn")
 
   var groups = []
-  for (var i = 2; i <= 6; ++i) {
-    console.log(`here is ${i}`)
+  var maxLen = 6
+  if (lines.length < maxLen) {
+    maxLen = lines.length
+  }
+  for (var i = 2; i <= maxLen; ++i) {
     groups.push(createGroups(lines, i))
   }
   groups = groups.flat()
 
-  document.getElementById('output').innerHTML = groups.join('');
+  document.getElementById('output').innerHTML = groups.join('<br /><br />');
 }
