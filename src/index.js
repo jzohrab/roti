@@ -12,11 +12,17 @@ window.sayHello = function() {
   document.getElementById('textToLearn').value = startingText
 }
 
+/** Current slide being shown. */
+let slideIndex = 0;
+
+/** All slide content. */
+let slides = [];
 
 /**
- * Generate the bidirectional reader.
+ * Generate slide content and show first slide.
  */
 window.startShow = function() {
+  console.log('start clicked')
 
   function getLines(elid) {
     var t = document.getElementById(elid).value
@@ -34,7 +40,33 @@ window.startShow = function() {
   for (var i = 2; i <= maxLen; ++i) {
     groups.push(createGroups(lines, i))
   }
-  groups = groups.flat()
+  slides = groups.flat()
 
-  document.getElementById('output').innerHTML = groups.join('<br /><br />');
+  document.getElementById('output').innerHTML = slides.join('<br /><br />')
+  showSlide(0)
+}
+
+
+// Next/previous controls
+window.plusSlides = function(n) {
+  var i = slideIndex + n
+  if (i >= slides.length) {
+    i = 0
+  }
+  if (i < 0) {
+    i = slides.length - 1
+  }
+  slideIndex = i
+
+  showSlide(slideIndex)
+}
+
+// Thumbnail image controls
+window.currentSlide = function(n) {
+  showSlide(slideIndex = n)
+}
+
+window.showSlide = function(n) {
+  console.log(`showing slide ${n}, text = ${slides[n]}`)
+  document.getElementById('output').innerHTML = slides[n]
 }

@@ -10,5 +10,4 @@ createGroups = function(lines, size) {
   return ret
 }
 
-
 module.exports = { createGroups }
