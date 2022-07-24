@@ -38,11 +38,12 @@ window.startShow = function() {
     maxLen = lines.length
   }
   for (var i = 2; i <= maxLen; ++i) {
+    groups.push(`${i} lines`)
     groups.push(createGroups(lines, i))
   }
+  groups.push('-')
   slides = groups.flat()
 
-  document.getElementById('output').innerHTML = slides.join('<br /><br />')
   showSlide(0)
 }
 
@@ -68,5 +69,5 @@ window.currentSlide = function(n) {
 
 window.showSlide = function(n) {
   console.log(`showing slide ${n}, text = ${slides[n]}`)
-  document.getElementById('output').innerHTML = slides[n]
+  document.getElementById('output').innerHTML = slides[n].replaceAll('\n', '<br />')
 }
