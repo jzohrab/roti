@@ -32,17 +32,23 @@ window.startShow = function() {
 
   var lines = getLines("textToLearn")
 
-  var groups = []
+  slides = []
   var maxLen = 6
   if (lines.length < maxLen) {
     maxLen = lines.length
   }
   for (var i = 2; i <= maxLen; ++i) {
-    groups.push(`${i} lines`)
-    groups.push(createGroups(lines, i))
+    const g = createGroups(lines, i)
+    for (var j = 0; j < g.length; ++j) {
+      const h = {
+        lineCount: i,
+        text: g[j],
+        groupIndex: j,
+        groupLength: g.length,
+      }
+      slides.push(h)
+    }
   }
-  groups.push('-')
-  slides = groups.flat()
 
   showSlide(0)
 }
@@ -69,5 +75,9 @@ window.currentSlide = function(n) {
 
 window.showSlide = function(n) {
   console.log(`showing slide ${n}, text = ${slides[n]}`)
-  document.getElementById('output').innerHTML = slides[n].replaceAll('\n', '<br />')
+  h = slides[n]
+  document.getElementById('output').innerHTML = h.text.replaceAll('\n', '<br />')
+
+  var pagenum = `${n + 1}/${slides.length} (${h.lineCount} lines: ${h.groupIndex + 1}/${h.groupLength})`
+  document.getElementById('pageNumber').innerHTML = pagenum
 }
