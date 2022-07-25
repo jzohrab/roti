@@ -4,14 +4,6 @@
 
 const { createGroups } = require('./util.js')
 
-/**
- * Fill in greetings.
- */
-window.sayHello = function() {
-  var startingText = 'Copy and paste here\nThe text you will be learning\nClick Start when ready.'
-  document.getElementById('textToLearn').value = startingText
-}
-
 /** Current slide being shown. */
 let slideIndex = 0;
 
