@@ -37,7 +37,7 @@ window.startShow = function() {
   if (lines.length < maxLen) {
     maxLen = lines.length
   }
-  for (var i = 2; i <= maxLen; ++i) {
+  for (var i = 1; i <= maxLen; ++i) {
     const g = createGroups(lines, i)
     for (var j = 0; j < g.length; ++j) {
       const h = {
@@ -83,6 +83,10 @@ window.showSlide = function(n) {
   h = slides[n]
   document.getElementById('output').innerHTML = h.text.replaceAll('\n', '<br />')
 
-  var pagenum = `${n + 1}/${slides.length} (${h.lineCount} lines: ${h.groupIndex + 1}/${h.groupLength})`
+  var counter = 'lines'
+  if (h.lineCount == 1) {
+    counter = 'line'
+  }
+  var pagenum = `${n + 1}/${slides.length} (${h.lineCount} ${counter}: ${h.groupIndex + 1}/${h.groupLength})`
   document.getElementById('pageNumber').innerHTML = pagenum
 }
