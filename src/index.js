@@ -63,6 +63,10 @@ window.plusSlides = function(n) {
   showSlide(slideIndex)
 }
 
+window.showInput = function() {
+  document.getElementById('userInput').style.visibility = 'visible'
+}
+
 // Thumbnail image controls
 window.currentSlide = function(n) {
   showSlide(slideIndex = n)
