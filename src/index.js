@@ -50,6 +50,8 @@ window.startShow = function() {
     }
   }
 
+  document.getElementById('textToLearn').rows = '3'
+  document.getElementById('textToLearn').style.height = '50px'
   document.getElementById('userInput').style.visibility = 'hidden'
   showSlide(0)
 }
