@@ -1,10 +1,15 @@
 # Roti
 
-A tool for poem memorization following the ideas at
+A simple javascript/html tool for poem memorization following the ideas at https://discover.hubpages.com/literature/How-To-Memorize-A-Poem.
 
-TODO reference here
+That page is worth reading, but here's a rough summary:
 
-**Demo is running at https://jzohrab.github.io/TODO/**
+* Read one line aloud, and then try to repeat it aloud from memory.  If you succeed, go to the next line, and so on until you reach the end.
+* Starting again, read two lines, and repeat aloud.  Then the next two, and so on ...
+* Repeat the process with three, four, five, and six lines.
+* Then try to do the whole thing from memory, and then take a break and sleep on it.
+
+This project is running at https://jzohrab.github.io/roti/, courtesy of GitHub.  (Thank you, GitHub.)
 
 
 # Development
